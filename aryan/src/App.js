@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App(){
+ return  <h2> This is my first react component </h2>
+}
+export function Aryan(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <h5>This ismy second function</h5>
+  )
+} 
+export const Aryan2 = () => {
+  return (
+    <h1>Abhishek is teaching me react</h1>
+  )
 }
 
 export default App;

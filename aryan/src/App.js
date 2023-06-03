@@ -1,15 +1,17 @@
 import './App.css';
 
 const BookList =()=>{
-  return <div>
+  return <div className="bookList">
     <Book/>
     <Book/>
-    <Book/>      
+    <Book/>
+    <Book/>
+    <Book/>
   </div>
 };
 
 const Book =()=>{
-  return <div>
+  return <div className="book">
     <Img/>
     <Bookname/>
     <Author/>
@@ -17,20 +19,20 @@ const Book =()=>{
 };
 
 const Img =()=>{
-  return <div>
-    <img src="https://m.media-amazon.com/images/I/81f+YzrzDjS._AC_UL400_.jpg"/>    
+  return <div className="img">
+    <img alt='image1' src='./images/ChristmasCarol.jpg'/>    
   </div>
 };
 
 const Bookname =()=>{
-  return <div>
-    <h2>A Christmas Carol</h2>
+  return <div className="bookName">
+    <h1>A Christmas Carol</h1>
   </div>
 };
 
 const Author =()=>{
-  return <div>
-    <h2>Charles Dickens</h2>
+  return <div className="author">
+    <h3>Charles Dickens</h3>
     </div>
 }
 

@@ -13,27 +13,78 @@ const Heading =()=>{ return <div className='heading'>
 </div>
 }
 
-const firstBook = {
-    imgAlt:"book1",
-    imgSrc: "https://m.media-amazon.com/images/I/71YjqWYLt4L.jpg",
-    name: "World's greatest stproes",
-    author: "by Collection books"
-};
-const secondBook = {
-    imgAlt:"Book2" ,
-    imgSrc:"https://m.media-amazon.com/images/I/81lZ-9E4F-S.jpg",
-    name:"The Diary of a Young Girl",
-    author:"Anne Frank"
-};
-const thirdBook = {
-    imgAlt:"Book3",
-    imgSrc:"https://m.media-amazon.com/images/I/71ZGznGgRDL.jpg",
-    name:"Bhagavad Gita",
-    author:"Anonymous"
-};
+// const firstBook = {
+//     imgAlt:"book1",
+//     imgSrc: "https://m.media-amazon.com/images/I/71YjqWYLt4L.jpg",
+//     name: "World's greatest stproes",
+//     author: "by Collection books"
+// };
+// const secondBook = {
+//     imgAlt:"Book2" ,
+//     imgSrc:"https://m.media-amazon.com/images/I/81lZ-9E4F-S.jpg",
+//     name:"The Diary of a Young Girl",
+//     author:"Anne Frank"
+// };
+// const thirdBook = {
+//     imgAlt:"Book3",
+//     imgSrc:"https://m.media-amazon.com/images/I/71ZGznGgRDL.jpg",
+//     name:"Bhagavad Gita",
+//     author:"Anonymous"
+// };
+
+// Using array list except objects
+
+const books = [
+    {
+        imgAlt:"book1",
+        imgSrc: "https://m.media-amazon.com/images/I/71YjqWYLt4L.jpg",
+        name: "World's greatest stproes",
+        author: "by Collection books",
+        id:1,
+    },{
+        imgAlt:"Book2" ,
+        imgSrc:"https://m.media-amazon.com/images/I/81lZ-9E4F-S.jpg",
+        name:"The Diary of a Young Girl",
+        author:"Anne Frank",
+        id:2,
+    },{
+        imgAlt:"Book3",
+        imgSrc:"https://m.media-amazon.com/images/I/71ZGznGgRDL.jpg",
+        name:"Bhagavad Gita",
+        author:"Anonymous",
+        id:3,
+    }
+]
+
+// const returnBook = books.map(()=>{
+//     const {imgAlt,imgSrc, name, author} = books;
+//     return <Books imgAlt={imgAlt} imgSrc={imgSrc} name={name} author={author}/>
+    // return <Books imgAlt={books.imgAlt} imgSrc={books.imgSrc} name={books.name} author={books.author} />
+// })
+
+
+
+const Box =(props)=>{
+    const {imgSrc,imgAlt, name, author, id} = props;
+    return <div className='box'>
+    <img alt={imgAlt} src={imgSrc}/>
+    <h3>{name}</h3>
+    <h6 style={h6Styles}>{author}</h6>
+    {/* <div className='child'>
+    {children}
+    </div> */}
+</div>
+}
+
+const returnBook = books.map((book)=>{
+    // const {imgSrc,imgAlt, name, author ,id} = book;
+    // return <Box imgAlt={imgAlt} imgSrc={imgSrc} name={name} author={author} key={id} />
+    return <Box {...book} key={book.id} />
+
+})
 
 const Contatiner=()=>{ return <div className='container'>
-        <Box 
+        {/* <Box 
         imgAlt={firstBook.imgAlt} 
         imgSrc={firstBook.imgSrc} 
         name={firstBook.name} 
@@ -54,18 +105,9 @@ const Contatiner=()=>{ return <div className='container'>
         imgSrc={thirdBook.imgSrc} 
         name={thirdBook.name} 
         author={thirdBook.author}
-        />
-</div>
-}
+        /> */}
 
-const Box =({imgAlt, imgSrc, name, author, children})=>{
-    return <div className='box'>
-    <img alt={imgAlt} src={imgSrc}/>
-    <h3>{name}</h3>
-    <h6 style={h6Styles}>{author}</h6>
-    <div className='child'>
-    {children}
-    </div>
+        {returnBook}
 </div>
 }
 

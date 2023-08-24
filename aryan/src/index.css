@@ -32,6 +32,21 @@ img{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size:1rem;
     min-width: 230px;
+    position:relative;
+    border-radius:10px;
+}
+button{
+    background-color: #333;
+    color: white;
+    padding:0.5rem;
+    border:0;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: #444;
+    color: black;
+    scale:0.96;
+    transition: 200ms;
 }
 h6{
     font-size: .9rem;
@@ -41,4 +56,20 @@ h6{
     color:red;
     font-size:0.8em;
     margin: 0;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.form input ,.form button,.form h2 {
+    margin:1rem;
+}
+.rank{
+    position:absolute;
+    top:0;
+    left:0;
+    background-color: #c35600;
+    color: white;
+    padding:0.5rem 0.8rem;
+    border-radius: 10px 0 10px 0;
 }

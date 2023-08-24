@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css'
+import {books} from './books.js'
+// import books from './books.js' (in case of export default)
+import {Box} from './box'
+/*  with named exports names MUST match
+    with default exports,can rename but only one per file   
+*/
 
 const Greeting = () => { return <div className='greeting'>
         <Heading/>
@@ -13,7 +19,7 @@ const Heading =()=>{ return <div className='heading'>
 </div>
 }
 
-// const firstBook = {
+// const firstBook = { 
 //     imgAlt:"book1",
 //     imgSrc: "https://m.media-amazon.com/images/I/71YjqWYLt4L.jpg",
 //     name: "World's greatest stproes",
@@ -34,27 +40,7 @@ const Heading =()=>{ return <div className='heading'>
 
 // Using array list except objects
 
-const books = [
-    {
-        imgAlt:"book1",
-        imgSrc: "https://m.media-amazon.com/images/I/71YjqWYLt4L.jpg",
-        name: "World's greatest stproes",
-        author: "by Collection books",
-        id:1,
-    },{
-        imgAlt:"Book2" ,
-        imgSrc:"https://m.media-amazon.com/images/I/81lZ-9E4F-S.jpg",
-        name:"The Diary of a Young Girl",
-        author:"Anne Frank",
-        id:2,
-    },{
-        imgAlt:"Book3",
-        imgSrc:"https://m.media-amazon.com/images/I/71ZGznGgRDL.jpg",
-        name:"Bhagavad Gita",
-        author:"Anonymous",
-        id:3,
-    }
-]
+// importing from books.js
 
 // const returnBook = books.map(()=>{
 //     const {imgAlt,imgSrc, name, author} = books;
@@ -63,27 +49,10 @@ const books = [
 // })
 
 
+// exporting box from './box.js 
 
-const Box =(props)=>{
-    const {imgSrc,imgAlt, name, author, id} = props;
-    return <div className='box'>
-    <img alt={imgAlt} src={imgSrc}/>
-    <h3>{name}</h3>
-    <h6 style={h6Styles}>{author}</h6>
-    {/* <div className='child'>
-    {children}
-    </div> */}
-</div>
-}
-
-const returnBook = books.map((book)=>{
-    // const {imgSrc,imgAlt, name, author ,id} = book;
-    // return <Box imgAlt={imgAlt} imgSrc={imgSrc} name={name} author={author} key={id} />
-    return <Box {...book} key={book.id} />
-
-})
-
-const Contatiner=()=>{ return <div className='container'>
+const Contatiner=()=>{
+    return <div className='container'>
         {/* <Box 
         imgAlt={firstBook.imgAlt} 
         imgSrc={firstBook.imgSrc} 
@@ -107,13 +76,27 @@ const Contatiner=()=>{ return <div className='container'>
         author={thirdBook.author}
         /> */}
 
-        {returnBook}
+        {returnBook(books)}
 </div>
 }
 
-const h6Styles= {
-    marginTop:"0.5rem",
-    textDecoration:"underline" 
+const returnBook = (books)=>{
+    // const bookid = 1;
+    // const getBook=(bookid)=>{
+    //     const findBook = book.find((prop)=>{
+    //         return prop.id == bookid;
+    //     })
+    // }
+    const getBook = (id) => {
+        console.log(books.find((prop) => prop.id === id));
+    };
+    // const {imgSrc,imgAlt, name, author ,id} = book;
+    // return <Box imgAlt={imgAlt} imgSrc={imgSrc} name={name} author={author} key={id} />
+    return <>
+    {books.map((books, index)=>{
+        return <Box {...books} key={books.id} getBook={getBook} index={index}/>
+    })}
+    </> 
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

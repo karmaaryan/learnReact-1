@@ -4,17 +4,22 @@ import './index.css'
 
 const MainComponent=()=>{
     return <>
-    <Greeting0/>
-    <Greeting/>
+        <Booklist/>
     </>
 }
 
-const Greeting0 =()=>{
-    return <h2>Hey, Good morning!</h2>
+const Booklist=()=>{
+    return <div>
+        <Book/>
+        <Book/>
+        <Book/>
+    </div>
 }
 
-const Greeting=()=>{
-    return <h1>Hey, Good morning!</h1>
+const Book=()=>{
+    return <div>
+        <img src='../public/img/2.jpg'/>
+    </div>
 }
 
 const Root = ReactDom.createRoot(document.getElementById("root"));

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom/client';
 import './index.css'
-import {firstBook, secondBook, thirdbook} from './books'
+import book, {firstBook, secondBook, thirdbook} from './books'
 import booksObj from "./books"
 
 const MainComponent=()=>{
@@ -34,18 +34,24 @@ const MainComponent=()=>{
         return <h2>{input.author}</h2>;
     })
 */
-// now we are creating a fucntion that would be returning the whole function
-// const returnBook = booksObj.map((input)=>{
-//     return <Book book={input}/>
-// })
 
 
 
 const Booklist=()=>{
+    const getBook=(id)=>{
+        const book = booksObj.find((input1)=> input1.id === id)
+        console.log(book);
+    }    
     return <div className="booklist">
-        {/* working approach */}
+        {/* working approach 1 */}
         {booksObj.map((input)=>{
-            return <Book book={input}/>
+            // const propDrilling = "This is a variable";
+            // const prop=()=>{
+            //     console.log(propDrilling);
+            // }
+            // return <Book book={input} key={input.id}/>
+            // return <Book {...input} key={input.id} propDrill={prop}/> //using spread operator
+            return <Book {...input} key={input.id} bookID={getBook} /> //using spread operator
         })}
         {/* <Book img={firstBook.img} auBthor={firstBook.author} name={firstBook.name}/> */}
         {/* <Book img={secondBook.img} author={secondBook.author} name={secondBook.name}/> */}
@@ -53,18 +59,38 @@ const Booklist=()=>{
         {/* <section>{return1}</section> */}
         {/* <section>{return2}</section> */}
         {/* this is not working right now */}
-        {/* {returnBook(booksObj)} */}  
+        {/* {returnBookbyFunc(booksObj)}   */}
         {/* <Book book={firstBook} />
         <Book book={secondBook} />
         <Book book={thirdbook} /> */}
     </div>
 }
+
+// second way to do the same (reference line 1 of Booklist return {working approach})
+{/*  Working approach  */}
+// const returnBookbyFunc = (booksObj) =>{
+//     return booksObj.map((input)=>{
+//         return <Book book={input} key={input.id}/>;
+//     })
+// }
+
 const Book=(props)=>{
-    const {img, author, name, id} = props.book;
+    const {img, author, name, id, bookID} = props;
+    // const {propDrill} = props;
+    // adding event in react 
+    // const btnClick=()=>{
+    //     alert("Btn click is working")
+    // }
+    // either create a function to use this (and call func1 in onClick) or the second approach would be to simply create a anonymous function in the onClick where the fucntion will be running inside
+    // const func1=()=>{
+    //     bookID(id);
+    // }
     return <div className="book">
         <img src={img}/>
         <h4>{name}</h4>
         <p>{author}</p>
+        {/* <button onClick={propDrill}>Click this!</button>   prop drilling example */}
+        <button onClick={()=>{bookID(id)}} >Click this!</button>   
     </div>
 }
 const Root = ReactDom.createRoot(document.getElementById("root"));

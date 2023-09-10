@@ -38,20 +38,22 @@ const MainComponent=()=>{
 
 
 const Booklist=()=>{
-    const getBook=(id)=>{
-        const book = booksObj.find((input1)=> input1.id === id)
-        console.log(book);
-    }    
+    // function for challenge
+    const newFunc = (input1, input2)=>{
+        const variable = booksObj.find((input2)=> input2.id === input1);
+        console.log(variable);
+        console.log(input2);
+    }
     return <div className="booklist">
         {/* working approach 1 */}
-        {booksObj.map((input)=>{
+        {booksObj.map((input, index)=>{
             // const propDrilling = "This is a variable";
             // const prop=()=>{
             //     console.log(propDrilling);
             // }
             // return <Book book={input} key={input.id}/>
             // return <Book {...input} key={input.id} propDrill={prop}/> //using spread operator
-            return <Book {...input} key={input.id} bookID={getBook} /> //using spread operator
+            return <Book {...input} index={index} key={input.id} sendFunc={newFunc} /> //using spread operator
         })}
         {/* <Book img={firstBook.img} auBthor={firstBook.author} name={firstBook.name}/> */}
         {/* <Book img={secondBook.img} author={secondBook.author} name={secondBook.name}/> */}
@@ -75,7 +77,7 @@ const Booklist=()=>{
 // }
 
 const Book=(props)=>{
-    const {img, author, name, id, bookID} = props;
+    const {img, author, name, id, sendFunc, index} = props;
     // const {propDrill} = props;
     // adding event in react 
     // const btnClick=()=>{
@@ -85,12 +87,15 @@ const Book=(props)=>{
     // const func1=()=>{
     //     bookID(id);
     // }
+    const returnFunc = () => sendFunc(id);
     return <div className="book">
         <img src={img}/>
         <h4>{name}</h4>
         <p>{author}</p>
         {/* <button onClick={propDrill}>Click this!</button>   prop drilling example */}
-        <button onClick={()=>{bookID(id)}} >Click this!</button>   
+        <button onClick={returnFunc} >Click this!</button>
+        {/* adding span book rank */}
+        <span id='span'>#{index+1}</span>
     </div>
 }  
 const Root = ReactDom.createRoot(document.getElementById("root"));

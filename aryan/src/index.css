@@ -17,15 +17,19 @@ h1{
 }
 .booklist{
     display:flex;
-    gap: 4rem;
+    gap: 2rem;
     background-color: #000;
     padding:2rem;
-    border-radius: 10px;
+    border-radius: 0 15px 15px 15px;
 }
 .book{
     text-align: center;
     max-width:175px;
     flex-shrink:1;
+    position: relative;
+    padding: 3rem;
+    border-radius: 10px;
+    background-color: #222;
 }
 .book img{
     border-radius:5px;
@@ -38,4 +42,13 @@ button{
     color: black;
     font-size: .9rem;
     outline: #161616 1px solid;
+}
+#span{
+    position:absolute;
+    top:0%;
+    left:0%;
+    border-radius:0 0 10px 0;
+    background-color: rgb(200, 75, 0);
+    font-size: 1.25rem;
+    padding:0.5rem;
 }

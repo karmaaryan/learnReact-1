@@ -15,7 +15,7 @@ const UseStateBasics = () => {
   }
   
   return <>
-    <h2>useState basics</h2>;
+    <h2>useState basics</h2>
     <h4>Count 1 is : {numberValue}</h4>
     <button className="btn" onClick={func}>Count++</button> 
     <h4>Count 2 is : {numberValue2}</h4>

@@ -140,7 +140,7 @@ import Starter from './tutorial/01-useState/starter/03-useState-array.jsx';
 
 Setup Challenge :
 
-- import data
+- import data 
 - setup a state value
   - people - default value equal to data
 - display list(people) in the browser

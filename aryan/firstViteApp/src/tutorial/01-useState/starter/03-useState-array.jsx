@@ -1,23 +1,33 @@
-import {data} from '../../../data.js'
-import React from 'react';
-
+import React, { useState } from 'react';
+import {data} from '../../../data';
 
 const UseStateArray = () => {
-  const [dataInput, setPeople] = React.useState(data);
-    function removePpl(id){
-      const remainingppl = dataInput.filter((input)=> input.id != id);
-      setPeople(remainingppl);
-    }
+
+  const [newData, chngData] = useState(data);
+
+  const setNew=(id)=>{
+    const setData = newData.filter((input)=> input.id !== id);
+    chngData(setData);
+  }
+
+  // const removeAll=()=>{
+  //   const setData = newData.filter((input)=> input === null);
+  //   chngData(setData);
+  // }
+
   return <div>
     <h2>useState array example</h2>
-    {dataInput.map((data)=>{
-      const {id, name} = data;
-      return <div key={id} JclassName='item'>
+    <br/>
+    {newData.map((input)=>{
+      const {name, id} = input;
+      return <div>
         <h4>{name}</h4>
-        <button className='btn' onClick={()=>removePpl(id)}>Click to remove</button>
+        <button className='btn' onClick={()=>setNew(id)}>Click ne</button>
       </div>
     })}
-  </div>
+
+    <button className='btn' onClick={()=>chngData([])}>Remove Each & Everything</button>
+  </div>  
 
 };
 

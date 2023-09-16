@@ -3,10 +3,14 @@ import ReactDom from 'react-dom/client';
 import './index.css'
 import book, {firstBook, secondBook, thirdbook} from './books'
 import booksObj from "./books"
+import Button from '@mui/material/Button';
+import { Typography } from '@mui/material';
 
 const MainComponent=()=>{
     return <section className="main">
         <h1>Amazon Best Sellers</h1>  
+        <Typography>This is a text</Typography>
+        <Button variant='contained'>Hello, World.</Button>
         <Booklist/>
     </section>
 } 

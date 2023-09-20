@@ -3,9 +3,9 @@ import { useState } from "react";
 const UseStateBasics = () => {
 
   let numberInitial = 0;
-  const [number, func2] = useState(numberInitial);
+  const [initial, func1] = useState(numberInitial);
   const func=()=>{
-    func2(number+1)
+    func1(initial+1);
   }
 
   let numberEnd=0;
@@ -16,7 +16,7 @@ const UseStateBasics = () => {
 
   return <>
     <h2>useState basics</h2>
-    <h4>Count is : {number}</h4>
+    <h4>Count is : {initial}</h4>
     <button onClick={func} className="btn">Count ++</button>
     <hr />
     <h4>Count is : {value1}</h4>

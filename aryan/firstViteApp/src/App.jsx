@@ -1,10 +1,10 @@
 import React from 'react';
-import Starter from './tutorial/01-useState/starter/03-useState-array'
+import Start from './tutorial/01-useState/starter/05-useState-gotcha'
 
-function App() {
+function App(){
   return (
     <div className='container'>
-      <Starter/>
+      <Start/>
     </div>
   );
 }

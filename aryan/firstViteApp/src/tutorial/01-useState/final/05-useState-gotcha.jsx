@@ -10,8 +10,8 @@ const UseStateGotcha = () => {
     // }, 3000);
     setTimeout(() => {
       console.log('clicked the button');
-      setValue((currentState) => {
-        return currentState + 1;
+      setValue((abcd) => {
+        return abcd + 1;
       });
     }, 3000);
   };

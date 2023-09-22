@@ -4,7 +4,7 @@ const UseStateObject = () => {
   const [person, setPerson] = useState({
     name: 'peter',
     age: 24,
-    hobby: 'read books',
+    hobby: 'read books', 
   });
 
   const displayPerson = () => {

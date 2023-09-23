@@ -11,8 +11,7 @@ const UseEffectBasics = () => {
 
   useEffect(()=>{
     console.log("Calling from useEffect");
-    // it will only work once cause we are using dependency array
-  },[])
+  },[value])
 
   return (
     <div>

@@ -4,19 +4,22 @@ const UserChallenge = () => {
 
   const [state, updateState] = useState(false)
 
-
- return (state ? (<div>
+  const FirstComponent=()=>{
+    return (<div>
       <h1>Hello There, Vegan Food Truck</h1>
       <button className='btn' onClick={()=>updateState(!state)}>log out</button>
-  </div>): (<div>
+  </div>)
+  }
+
+  const SecondComponent=()=>{
+    return (<div>
       <h1>Please Login</h1>
+      <h1>hmm, look at this handsome guy teaching</h1>
       <button className='btn' onClick={()=>updateState(!state)}>Login</button>
-    </div>))
+    </div>)
+  }
 
-
+  return (state ? <FirstComponent/> : <SecondComponent/>)
 };
 
 export default UserChallenge;
-
-// Hello There, Vegan Food Truck
-// btn logout

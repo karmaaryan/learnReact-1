@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const CleanupFunction = () => {
   const [toggle, setToggle] = useState(false);
-
+  console.log("render")
   return (
     <div>
       <button className='btn' onClick={() => setToggle(!toggle)}>
@@ -14,13 +14,12 @@ const CleanupFunction = () => {
 };
 const RandomComponent = () => {
   useEffect(() => {
-    // console.log('hmm, this is interesting');
-    const intID = setInterval(() => {
-      console.log('hello from interval');
+    const intId = setInterval(() => {
     }, 1000);
-    // does not stop, keeps going
-    // every time we render component new interval gets created
-    return () => clearInterval(intID); 
+    return () => {
+      clearInterval(intId);
+      console.log("cleanup")
+    }
   }, []);
 
   return <h1>hello there</h1>;

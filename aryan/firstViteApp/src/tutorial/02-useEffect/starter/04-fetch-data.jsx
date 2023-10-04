@@ -1,49 +1,39 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 const url = 'https://api.github.com/users';
 
-// const [data, setData] = useState();
+const FetchData = ()=>{
 
-const fetchDataApi = async ()=>{
-  try {
-    const rawData = await fetch(url)
-    const finalData = await rawData.json();
-    // console.log(finalData)
-    return finalData;
-    // return setData(finalData);
-  } catch (error) {
-    console.log(error)
-  }
+  const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    const fetchApiData = async () =>{
+      try{ 
+        const fetching = await fetch(url)     
+        const finalData = await fetching.json();
+        // console.log(finalData)
+        setData(finalData);
+      }catch(error){
+        console.log(error)
+      }
+    }
+    fetchApiData();
+  },[])
+
+  return <section>
+    <h2>Github users list</h2>
+    <ul className='users'>
+    {data.map((input)=>{
+      const {login, html_url, avatar_url, id} = input;
+      return (<li>
+        <img src={avatar_url} alt="" />
+        <div>
+          <h5>{login}</h5>
+          <a href={html_url}>Profile</a>
+        </div>
+      </li>)
+      })}
+    </ul>
+  </section>
 }
 
-const obj = {
-  name : "aryan",
-  obj2 : {
-    name:"karma"
-  }
-} 
-
-// console.log(obj.name);
-
-console.log(fetchDataApi())
-
-const FetchData = () => {
-  return <div>
-    <h2>fetch data example</h2>
-    <section>
-      <h3>Github Users</h3>
-      <ul className='users'>
-        
-        <li>
-          <img url='' src="" alt="" />
-          <div>
-            <h5></h5>
-            <a></a>
-          </div>
-        </li>
-
-      </ul>
-    </section>
-  </div>
-};
 export default FetchData;
- 

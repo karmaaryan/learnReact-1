@@ -14,11 +14,17 @@ const ShortCircuitOverview = () => {
       {/* {if(someCondition){"won't work"}} */}
 
       <h4>Falsy OR : {text || 'hello world'}</h4>
-      <h4>Falsy AND {text && 'hello world'}</h4>
-      <h4>Truthy OR {name || 'hello world'}</h4>
-      <h4>Truthy AND {name && 'hello world'}</h4>
+      <h4>Falsy AND :{text && 'hello world'}</h4>
+      <h4>Truthy OR :{name || 'hello world'}</h4>
+      <h4>Truthy AND : {name && 'hello world'}</h4>
       {codeExample}
     </div>
   );
 };
+
+/*  */
+/*  */
+/*  */
+/*  */
+
 export default ShortCircuitOverview;

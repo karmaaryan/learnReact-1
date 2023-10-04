@@ -4,7 +4,7 @@ const url = 'https://api.github.com/users/QuincyLarson';
 const MultipleReturnsFetchData = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -16,9 +16,8 @@ const MultipleReturnsFetchData = () => {
           setIsLoading(false);
           return;
         }
-
         const user = await resp.json();
-        setUser(user);
+        setUser(user); 
       } catch (error) {
         setIsError(true);
         // console.log(error);
@@ -28,6 +27,7 @@ const MultipleReturnsFetchData = () => {
     };
     fetchUser();
   }, []);
+
   // order matters
   // don't place user JSX before loading or error
 

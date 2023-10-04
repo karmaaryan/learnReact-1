@@ -6,7 +6,7 @@ const Example = () => {
   //   // won't work
   //   const [state, setState] = useState(false);
   // }
-
+   
   if (condition) {
     return <h2>Hello There</h2>;
   }

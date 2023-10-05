@@ -10,7 +10,7 @@ const CleanupFunction = () => {
       </button>
       {toggle && <RandomComponent />}
     </div>
-  );
+  ); 
 };
 const RandomComponent = () => {
   useEffect(() => {

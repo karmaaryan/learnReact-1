@@ -3,12 +3,6 @@ const ControlledInputs = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
-  // const handleChange = (e) => {
-  //   // for now we won't use it
-  //   const name = e.target.name;
-  //   const value = e.target.value;
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // do something

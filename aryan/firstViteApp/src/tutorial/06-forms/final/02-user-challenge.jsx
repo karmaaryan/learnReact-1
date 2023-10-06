@@ -25,6 +25,7 @@ const UserChallenge = () => {
     const updatedUsers = users.filter((person) => person.id !== id);
     setUsers(updatedUsers);
   };
+  
   return (
     <div>
       <form className='form' onSubmit={handleSubmit}>

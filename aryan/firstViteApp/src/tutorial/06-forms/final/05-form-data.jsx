@@ -20,7 +20,7 @@ const UncontrolledInputs = () => {
     e.currentTarget.reset();
   };
 
-  return (
+  return ( 
     <div>
       <form className='form' onSubmit={handleSubmit}>
         <h4>Form Data API</h4>

@@ -13,6 +13,9 @@ const UserChallenge=()=>{
   const addToList=(name)=>{
     const id = list.length+1
     const userID = {id, name}
+    console.log(list)
+    console.log(userID)
+    console.log([...list, userID])
     updateList([...list, userID])
   }
 

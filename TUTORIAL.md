@@ -2010,7 +2010,8 @@ const UseRefBasics = () => {
     refContainer.current.focus();
   });
 
-  const isMounted = useRef(false);
+  const i
+  return (sMounted = useRef(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -2027,7 +2028,6 @@ const UseRefBasics = () => {
     console.log('re-render');
   }, [value]);
 
-  return (
     <div>
       <form className='form' onSubmit={handleSubmit}>
         <div className='form-row'>

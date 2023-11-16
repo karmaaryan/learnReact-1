@@ -1,19 +1,20 @@
-import { useState } from 'react';
-import useToggling from './useToggle';
-
+import useToggle from './useToggle';
 
 const ToggleExample = () => {
 
-  const {value, updateFunction} = useToggling(true);
+  const {someValue, toggle} = useToggle(true);
 
   return (
     <div>
       <h4>toggle custom hook</h4>
-      <button className='btn' onClick={updateFunction}>
+      <button className='btn' onClick={toggle}>
         toggle
       </button>
-      {value && <h4>some stuff</h4>}
+
+      {someValue && <h4>some stuff</h4>}
+
     </div>
   );
 };
+
 export default ToggleExample;

@@ -1,28 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
 
-// useRef doesn't triggers re renders in a component (used in some specific cases)
-
 const UseRefBasics = () => {
   const [value, setValue] = useState(0);
-
   const refContainer = useRef(null)
-
-  // console.log(refContainer)
-
-  // useEffect(()=>{
-  //   console.log(refContainer)
-  // })
+  const isMounted = useRef(false)
 
   useEffect(()=>{
-    refContainer.current.focus();
+    if(!isMounted.current){
+      isMounted.current = true;
+      return;
+    }
   })
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setting uncontrolled input using useRef (not with useState)
-    const name = refContainer.current.value
-    console.log(name)
-
+    console.log(refContainer.current.value)
   };
 
   return (

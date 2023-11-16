@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-const useToggling = (params) => {
-    const [value, updateValue] = useState(params)
-    const updateFunction =()=>{
-        updateValue(!value);
+const useToggle = (defaultValue) =>{
+    const [someValue, udpateValue] = useState(defaultValue)
+    const toggle=()=>{
+        udpateValue(!someValue)
     }
-    return {value, updateFunction}
-}
+    return {someValue, toggle}
+};
 
-export default useToggling;
+export default useToggle;

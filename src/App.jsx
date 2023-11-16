@@ -1,9 +1,12 @@
 import React from 'react';
-import Final from "./tutorial/09-context-api/final/context/Navbar"
-import Navbar from './tutorial/09-context-api/starter/components/navbar'
+import Final from './tutorial/11-performance/final/01-lower-state/List'
+import Starter from './tutorial/11-performance/starter/01-lower-state/List'
 
 export default function App(){
   return (
-      <Navbar/>
+    <div className='container'>
+      <Final/>
+      <Starter/>
+    </div>
   );
 }

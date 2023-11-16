@@ -2763,7 +2763,7 @@ export default ReducerBasics;
 
   - copy/paste reducer
   - import actions
-  - import data
+  - import data 
   - export/import reducer
 
 #### Performance
